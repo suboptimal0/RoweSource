@@ -8894,93 +8894,14 @@ static u32 CalcFinalDmg(u32 dmg, u16 move, u8 battlerAtk, u8 battlerDef, u8 move
     // check stab
     if (IS_BATTLER_OF_TYPE(battlerAtk, moveType) && move != MOVE_STRUGGLE)
     {
-        if((isBattlerSingleTyped(battlerAtk) || FlagGet(FLAG_OLD_STAB_MODE)) && abilityAtk != ABILITY_PROTEAN && abilityAtk != ABILITY_LIBERO){
-            if (abilityAtk == ABILITY_ADAPTABILITY)
-                MulModifier(&finalModifier, UQ_4_12(2.0));
-            else
-                MulModifier(&finalModifier, UQ_4_12(1.5));
-        }
-        else{
-            if (abilityAtk == ABILITY_ADAPTABILITY)
-                MulModifier(&finalModifier, UQ_4_12(1.5));
-            else
-                MulModifier(&finalModifier, UQ_4_12(1.25));
-        }
+        if (abilityAtk == ABILITY_ADAPTABILITY)
+            MulModifier(&finalModifier, UQ_4_12(2.0));
+        else
+            MulModifier(&finalModifier, UQ_4_12(1.5));
+        
     }
 
-    // Monotype boost
-    if(!FlagGet(FLAG_OLD_STAB_MODE) && move != MOVE_STRUGGLE){
-        //Attacker boost
-        switch(attackermonotypeboost){
-            case 1:
-                MulModifier(&finalModifier, UQ_4_12(1.1));
-            break;
-            case 2:
-                MulModifier(&finalModifier, UQ_4_12(1.2));
-            break;
-            case 3:
-                MulModifier(&finalModifier, UQ_4_12(1.3));
-            break;
-            case 4:
-                MulModifier(&finalModifier, UQ_4_12(1.4));
-            break;
-            case 5:
-                MulModifier(&finalModifier, UQ_4_12(1.5));
-            break;
-            case 6:
-                MulModifier(&finalModifier, UQ_4_12(1.6));
-            break;
-            case 7:
-                MulModifier(&finalModifier, UQ_4_12(1.7));
-            break;
-            case 8:
-                MulModifier(&finalModifier, UQ_4_12(1.8));
-            break;
-            case 9:
-                MulModifier(&finalModifier, UQ_4_12(1.9));
-            break;
-            case 10:
-            case 11:
-            case 12:
-                MulModifier(&finalModifier, UQ_4_12(2.0));
-            break;
-        }
-
-        //Defender boost
-        switch(defendermonotypeboost){
-            case 1:
-                MulModifier(&finalModifier, UQ_4_12(0.95));
-            break;
-            case 2:
-                MulModifier(&finalModifier, UQ_4_12(0.9));
-            break;
-            case 3:
-                MulModifier(&finalModifier, UQ_4_12(0.85));
-            break;
-            case 4:
-                MulModifier(&finalModifier, UQ_4_12(0.8));
-            break;
-            case 5:
-                MulModifier(&finalModifier, UQ_4_12(0.75));
-            break;
-            case 6:
-                MulModifier(&finalModifier, UQ_4_12(0.7));
-            break;
-            case 7:
-                MulModifier(&finalModifier, UQ_4_12(0.65));
-            break;
-            case 8:
-                MulModifier(&finalModifier, UQ_4_12(0.6));
-            break;
-            case 9:
-                MulModifier(&finalModifier, UQ_4_12(0.55));
-            break;
-            case 10:
-            case 11:
-            case 12:
-                MulModifier(&finalModifier, UQ_4_12(0.5));
-            break;
-        }
+    
     }
 
     // reflect, light screen, aurora veil

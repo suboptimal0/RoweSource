@@ -53,7 +53,7 @@ static const u16 sTextboxBorder_Pal[] = INCBIN_U16("graphics/interface/unk_textb
 static const u32 sTextboxBorder_Gfx[] = INCBIN_U32("graphics/interface/unk_textbox_border.4bpp.lz");
 
 enum {
-    CARD_TEST,
+        CARD_TEST,
     CARD_VIVILLON_1,
     CARD_GRENINJA,
     CARD_PICHU,
@@ -70,6 +70,7 @@ enum {
 	CARD_SHINY_AXEW,
 	CARD_MANAPHY,
     CARD_HALLOWEEN_GOURGEIST,
+    CARD_THUNDURUS,
 };
 
 struct MysteryGiftTaskData
@@ -1489,6 +1490,28 @@ struct MysteryGiftMonStructure gMysteryGiftMons[] =
 		.nature				= NATURE_TIMID,
 		.pokeball 			= ITEM_CHERISH_BALL,
 		.moves				= {MOVE_WILL_O_WISP, MOVE_CELEBRATE, MOVE_TRICK_OR_TREAT, MOVE_PHANTOM_FORCE},
+		.isShiny 			= TRUE,
+		.ivs 				= {31, 31, 31, 31, 31, 31},
+		.evs 				= {0, 0, 0, 0, 0, 0},
+		.exioliteBoost 		= FALSE,
+		.neededBadge 		= 0,
+		.areYouOT		    = TRUE,
+		.otName 			= _("You"),
+		.otGender 			= 0,
+		.trainerIDNo	    = 0,
+		.language           = LANGUAGE_ENGLISH,
+		.nickname 			= _("No Nickname"),
+		.isNicknamed		= FALSE,
+	},
+    [CARD_THUNDURUS] =
+    {
+		.species 			= SPECIES_THUNDURUS ,
+		.helditem 			= ITEM_LIFE_ORB,
+		.abilityNum 		= 2,
+		.level 				= 0,
+		.nature				= NATURE_TIMID,
+		.pokeball 			= ITEM_CHERISH_BALL,
+		.moves				= {MOVE_HURRICANE, MOVE_THUNDER, MOVE_NASTY_PLOT, MOVE_WEATHER_BALL},
 		.isShiny 			= TRUE,
 		.ivs 				= {31, 31, 31, 31, 31, 31},
 		.evs 				= {0, 0, 0, 0, 0, 0},
