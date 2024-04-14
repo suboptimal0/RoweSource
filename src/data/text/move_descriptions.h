@@ -5889,6 +5889,9 @@ static const u8 sEERIE_SPELLDescription[] = _(
     "Attacks with psychic power.\n"
     "Foe's last move has 3 PP cut.");
 
+static const u8 sHEADLONG_RUSHDescription[] = _(
+    "Full-body tackle of target.\n"
+    "Lowers Def and SpD.");
 static const u8 sNotDoneYetDescription[] = _(
     "Not done yet.");
 
