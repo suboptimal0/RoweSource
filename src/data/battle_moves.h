@@ -277,11 +277,11 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_FLY] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_4
-            .power = 110,
+            .power = 100,
         #else
             .power = 70,
         #endif
-        .effect = EFFECT_HIT,
+        .effect = EFFECT_SEMI_INVULNERABLE,
         .type = TYPE_FLYING,
         .accuracy = 100,
         .pp = 15,
