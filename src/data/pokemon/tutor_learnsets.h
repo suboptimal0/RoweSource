@@ -6146,6 +6146,7 @@ static const u8 sSceptileTutorLearnset[] =
     TUTOR(MOVE_FLASH),
     TUTOR(MOVE_GRASSY_GLIDE),
     TUTOR(MOVE_BREAKING_SWIPE),
+    TUTOR(MOVE_DRACO_METEOR),
     0xFF,
 };
 
@@ -11760,6 +11761,7 @@ static const u8 sSerperiorTutorLearnset[] =
     TUTOR(MOVE_DRAGON_PULSE),
     TUTOR(MOVE_FLASH),
     TUTOR(MOVE_DEFOG),
+    TUTOR(MOVE_DRACO_METEOR),
     0xFF,
 };
 

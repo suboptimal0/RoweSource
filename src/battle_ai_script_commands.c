@@ -3258,12 +3258,7 @@ static u8 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, u8 score)
             } // def partner ability checks
         } // ignore def ability check
     
-        // gen7+ dark type mons immune to priority->elevated moves from prankster
-        #if B_PRANKSTER >= GEN_7
-        if (atkAbility == ABILITY_PRANKSTER && IS_BATTLER_OF_TYPE(battlerDef, TYPE_DARK) && IS_MOVE_STATUS(move)
-          && !(moveTarget & (MOVE_TARGET_OPPONENTS_FIELD | MOVE_TARGET_USER)))
-            RETURN_SCORE_MINUS(10);
-        #endif
+        // gen7+ dark type mons immune to priority->elevated moves from prankster (deleted)
         
         // terrain & effect checks
         if (gFieldStatuses & STATUS_FIELD_ELECTRIC_TERRAIN)
