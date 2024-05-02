@@ -5782,8 +5782,8 @@ static const u8 sSCALE_SHOTDescription[] = _(
     "Ups Speed, lowers defense.");
 
 static const u8 sMETEOR_BEAMDescription[] = _(
-    "A 2-turn move that raises\n"
-    "Sp. Attack before attacking.");
+    "Now 1 turn, not 2, due to"
+    "limitations. May up SpA.");
 
 static const u8 sSHELL_SIDE_ARMDescription[] = _(
     "Uses higher of physical and\n"
@@ -5888,10 +5888,7 @@ static const u8 sASTRAL_BARRAGEDescription[] = _(
 static const u8 sEERIE_SPELLDescription[] = _(
     "Attacks with psychic power.\n"
     "Foe's last move has 3 PP cut.");
-
-static const u8 sHEADLONG_RUSHDescription[] = _(
-    "Full-body tackle of target.\n"
-    "Lowers Def and SpD.");
+    
 static const u8 sNotDoneYetDescription[] = _(
     "Not done yet.");
 
