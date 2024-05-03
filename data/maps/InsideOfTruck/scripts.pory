@@ -1051,16 +1051,16 @@ Text_Take_Starter3:
 Text_Received_Starter3:
 	.string "{PLAYER} received a Barboach!$"
 	
-//Kricketot
+//Kricketot -> thundurus
 Script_Give_Starter4::
 	lock
 	faceplayer
-	showmonpic SPECIES_KRICKETOT, 10, 3
+	showmonpic SPECIES_THUNDURUS, 10, 3
 	msgbox Text_Take_Starter4, MSGBOX_YESNO
 	hidemonpic
 	compare VAR_RESULT, NO
 	goto_if_eq Start_EventScript_Chose_Starter
-	givecustommon SPECIES_KRICKETOT, 10, ITEM_NONE, ITEM_POKE_BALL, NATURE_JOLLY, 1, 0, 0, 0, 0, 0, 0, 15, 31, 15, 31, 15, 15, MOVE_STRUGGLE_BUG, MOVE_GROWL, MOVE_BUG_BITE, MOVE_UPROAR
+	givecustommon SPECIES_THUNDURUS, 10, ITEM_NONE, ITEM_POKE_BALL, NATURE_TIMID, 1, 0, 0, 0, 0, 0, 0, 15, 31, 15, 31, 15, 15, MOVE_NASTY_PLOT, MOVE_GUST, MOVE_THUNDER_SHOCK, MOVE_RAIN_DANCE
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox Text_Received_Starter4, MSGBOX_DEFAULT
 	setflag FLAG_SYS_POKEMON_GET
@@ -1069,11 +1069,11 @@ Script_Give_Starter4::
 	end
 
 Text_Take_Starter4:
-	.string "Do you want the Cricket Pokémon\n"
-	.string "Kricketot?$"
+	.string "Do you want BoltStrike Pokémon\n"
+	.string "Thundurus?$"
 
 Text_Received_Starter4:
-	.string "{PLAYER} received a Kricketot!$"
+	.string "{PLAYER} received a Thundurus!$"
 	
 //Cubchoo
 Script_Give_Starter5::
