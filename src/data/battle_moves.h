@@ -3882,7 +3882,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
             .power = 20,
         #endif
         .effect = EFFECT_DEFENSE_DOWN_HIT,
-        .type = TYPE_FIGHTING,l
+        .type = TYPE_FIGHTING,
         .accuracy = 100,
         .pp = 15,
         .secondaryEffectChance = 100,
