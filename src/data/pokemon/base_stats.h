@@ -18024,7 +18024,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup2 = EGG_GROUP_UNDISCOVERED,
         #ifdef BATTLE_ENGINE
             .abilities = {ABILITY_PRANKSTER, ABILITY_REGENERATOR},
-            .abilityHidden = ABILIY_AIR_CURRENT,
+            .abilityHidden = ABILITY_AIR_CURRENT,
         #else
             .abilities = {ABILITY_NONE, ABILITY_NONE},
         #endif
