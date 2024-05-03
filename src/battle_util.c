@@ -8901,9 +8901,6 @@ static u32 CalcFinalDmg(u32 dmg, u16 move, u8 battlerAtk, u8 battlerDef, u8 move
         
     }
 
-    
-    }
-
     // reflect, light screen, aurora veil
     if (((gSideStatuses[defSide] & SIDE_STATUS_REFLECT && IS_BATTLER_MOVE_PHYSICAL(move, battlerAtk))
             || (gSideStatuses[defSide] & SIDE_STATUS_LIGHTSCREEN && IS_BATTLER_MOVE_SPECIAL(move, battlerAtk))
