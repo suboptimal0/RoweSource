@@ -9050,7 +9050,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .target = MOVE_TARGET_BOTH,
         .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED | FLAG_SHEER_FORCE_BOOST,
-        .split = SPLIT_SPECIAL,
+        .split = SPLIT_PHYSICAL,
     },
 
     [MOVE_STEAM_ERUPTION] =
@@ -10285,9 +10285,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_FLOATY_FALL] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_8
-            .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
+            .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_SHEER_FORCE_BOOST ,
         #else
-            .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED,
+            .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_SHEER_FORCE_BOOST,
         #endif
         .effect = EFFECT_FLINCH_HIT,
         .power = 90,
@@ -10465,7 +10465,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_8
             .power = 120,
-            .accuracy = 85,
+            .accuracy = 90,
             .pp = 5,
             .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
         #else
@@ -10474,9 +10474,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
             .pp = 15,
             .flags = FLAG_PROTECT_AFFECTED | FLAG_KINGSROCK_AFFECTED,
         #endif
-        .effect = EFFECT_PLACEHOLDER,   //TODO (Heal Bell + Hit)
+        .effect = EFFECT_SPECIAL_ATTACK_DOWN_HIT,   //TODO (Heal Bell + Hit) -> edited
         .type = TYPE_FAIRY,
-        .secondaryEffectChance = 0,
+        .secondaryEffectChance = 20,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .split = SPLIT_SPECIAL,
@@ -11259,7 +11259,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SCORCHING_SANDS] =
     {
-        .effect = EFFECT_SCALD,
+        .effect = EFFECT_SCORCHING_SANDS,
         .power = 70,
         .type = TYPE_GROUND,
         .accuracy = 100,
@@ -11431,6 +11431,14 @@ const struct SignatureMove gSignatureMoveList[NUM_SPECIES] = {
         .move = MOVE_RAZOR_SHELL,
         .modification = SIGNATURE_MOD_PSS_CHANGE,
         .variable= SPLIT_SPECIAL,
+        .differentDescription = FALSE,
+        .description = _("Default Description"),
+    },
+    [SPECIES_KARTANA] = 
+    {
+        .move = MOVE_CUT,
+        .modification = SIGNATURE_MOD_POWER,
+        .variable = 80,
         .differentDescription = FALSE,
         .description = _("Default Description"),
     },

@@ -8009,8 +8009,12 @@ static u16 CalcMoveBasePower(u16 move, u8 battlerAtk, u8 battlerDef)
         break;
     case EFFECT_RISING_VOLTAGE:
 		if(gFieldStatuses & STATUS_FIELD_ELECTRIC_TERRAIN && IsBattlerGrounded(battlerAtk))
-				basePower *= 2;
+            basePower *= 2;
 		break;
+    case EFFECT_SCORCHING_SANDS:
+        if (WEATHER_HAS_EFFECT && gBattleWeather & WEATHER_SANDSTORM_ANY)
+            basePower = 113;
+    break;
     }
 
     //For Signature Moves
@@ -8143,23 +8147,23 @@ static u32 CalcMoveBasePowerAfterModifiers(u16 move, u8 battlerAtk, u8 battlerDe
         break;
     case ABILITY_PIXILATE:
         if (moveType == TYPE_FAIRY && gBattleStruct->ateBoost[battlerAtk])
-            MulModifier(&modifier, UQ_4_12(1.2));
+            MulModifier(&modifier, UQ_4_12(1.3));
         break;
     case ABILITY_GALVANIZE:
         if (moveType == TYPE_ELECTRIC && gBattleStruct->ateBoost[battlerAtk])
-            MulModifier(&modifier, UQ_4_12(1.2));
+            MulModifier(&modifier, UQ_4_12(1.3));
         break;
     case ABILITY_REFRIGERATE:
         if (moveType == TYPE_ICE && gBattleStruct->ateBoost[battlerAtk])
-            MulModifier(&modifier, UQ_4_12(1.2));
+            MulModifier(&modifier, UQ_4_12(1.3));
         break;
     case ABILITY_AERILATE:
         if (moveType == TYPE_FLYING && gBattleStruct->ateBoost[battlerAtk])
-            MulModifier(&modifier, UQ_4_12(1.2));
+            MulModifier(&modifier, UQ_4_12(1.3));
         break;
     case ABILITY_NORMALIZE:
         if (moveType == TYPE_NORMAL && gBattleStruct->ateBoost[battlerAtk])
-            MulModifier(&modifier, UQ_4_12(1.2));
+            MulModifier(&modifier, UQ_4_12(1.3));
         break;
 	case ABILITY_GORILLA_TACTICS:
         if (IS_BATTLER_MOVE_PHYSICAL(move, battlerAtk))
@@ -8235,7 +8239,7 @@ static u32 CalcMoveBasePowerAfterModifiers(u16 move, u8 battlerAtk, u8 battlerDe
             MulModifier(&modifier, UQ_4_12(2.0));
         break;
     case ABILITY_JUSTIFIED:
-        if (moveType == TYPE_DARK || moveType == TYPE_DRAGON || moveType == TYPE_GHOST)
+        if (moveType == TYPE_DARK )
         {
             MulModifier(&modifier, UQ_4_12(0.5));
             if (updateFlags)
@@ -8289,7 +8293,7 @@ static u32 CalcMoveBasePowerAfterModifiers(u16 move, u8 battlerAtk, u8 battlerDe
             MulModifier(&modifier, holdEffectModifier);
         break;
     case HOLD_EFFECT_SOUL_DEW:
-        if ((gBattleMons[battlerAtk].species == SPECIES_LATIAS || gBattleMons[battlerAtk].species == SPECIES_LATIOS) && !(gBattleTypeFlags & BATTLE_TYPE_FRONTIER))
+        if ((gBattleMons[battlerAtk].species == SPECIES_LATIAS || gBattleMons[battlerAtk].species == SPECIES_LATIOS))
             MulModifier(&modifier, holdEffectModifier);
         break;
     case HOLD_EFFECT_GEMS:
@@ -8325,6 +8329,10 @@ static u32 CalcMoveBasePowerAfterModifiers(u16 move, u8 battlerAtk, u8 battlerDe
         }
         break;
     case HOLD_EFFECT_PLATE:
+        if (moveType == ItemId_GetSecondaryId(gBattleMons[battlerAtk].item))
+            MulModifier(&modifier, holdEffectModifier);
+        break;
+    case HOLD_EFFECT_MEMORY:
         if (moveType == ItemId_GetSecondaryId(gBattleMons[battlerAtk].item))
             MulModifier(&modifier, holdEffectModifier);
         break;
@@ -8376,13 +8384,13 @@ static u32 CalcMoveBasePowerAfterModifiers(u16 move, u8 battlerAtk, u8 battlerDe
     if (gStatuses3[battlerAtk] & STATUS3_ME_FIRST)
         MulModifier(&modifier, UQ_4_12(1.5));
     if (gFieldStatuses & STATUS_FIELD_GRASSY_TERRAIN && moveType == TYPE_GRASS && IsBattlerGrounded(battlerAtk) && !(gStatuses3[battlerAtk] & STATUS3_SEMI_INVULNERABLE))
-        MulModifier(&modifier, (B_TERRAIN_TYPE_BOOST >= GEN_8) ? UQ_4_12(1.3) : UQ_4_12(1.5));
+        MulModifier(&modifier, (B_TERRAIN_TYPE_BOOST >= GEN_8) ? UQ_4_12(1.5) : UQ_4_12(1.5));
     if (gFieldStatuses & STATUS_FIELD_MISTY_TERRAIN && moveType == TYPE_DRAGON && IsBattlerGrounded(battlerDef) && !(gStatuses3[battlerDef] & STATUS3_SEMI_INVULNERABLE))
         MulModifier(&modifier, UQ_4_12(0.5));
     if (gFieldStatuses & STATUS_FIELD_ELECTRIC_TERRAIN && moveType == TYPE_ELECTRIC && IsBattlerGrounded(battlerAtk) && !(gStatuses3[battlerAtk] & STATUS3_SEMI_INVULNERABLE))
-        MulModifier(&modifier, (B_TERRAIN_TYPE_BOOST >= GEN_8) ? UQ_4_12(1.3) : UQ_4_12(1.5));
+        MulModifier(&modifier, (B_TERRAIN_TYPE_BOOST >= GEN_8) ? UQ_4_12(1.5) : UQ_4_12(1.5));
     if (gFieldStatuses & STATUS_FIELD_PSYCHIC_TERRAIN && moveType == TYPE_PSYCHIC && IsBattlerGrounded(battlerAtk) && !(gStatuses3[battlerAtk] & STATUS3_SEMI_INVULNERABLE))
-        MulModifier(&modifier, (B_TERRAIN_TYPE_BOOST >= GEN_8) ? UQ_4_12(1.3) : UQ_4_12(1.5));
+        MulModifier(&modifier, (B_TERRAIN_TYPE_BOOST >= GEN_8) ? UQ_4_12(1.5) : UQ_4_12(1.5));
 
     return ApplyModifier(modifier, basePower);
 }
@@ -8564,7 +8572,7 @@ static u32 CalcAttackStat(u16 move, u8 battlerAtk, u8 battlerDef, u8 moveType, b
     switch (GetBattlerHoldEffect(battlerAtk, TRUE))
     {
     case HOLD_EFFECT_THICK_CLUB:
-        if ((gBattleMons[battlerAtk].species == SPECIES_CUBONE || gBattleMons[battlerAtk].species == SPECIES_MAROWAK) && IS_BATTLER_MOVE_PHYSICAL(move, battlerAtk) && !(FlagGet(FLAG_LEVELESS_MODE) && FlagGet(FLAG_NO_EVOLUTION_MODE)))
+        if ((gBattleMons[battlerAtk].species == SPECIES_CUBONE || gBattleMons[battlerAtk].species == SPECIES_MAROWAK) && IS_BATTLER_MOVE_PHYSICAL(move, battlerAtk))
             MulModifier(&modifier, UQ_4_12(2.0));
         break;
     case HOLD_EFFECT_DEEP_SEA_TOOTH:
@@ -8577,20 +8585,9 @@ static u32 CalcAttackStat(u16 move, u8 battlerAtk, u8 battlerDef, u8 moveType, b
             MulModifier(&modifier, UQ_4_12(1.5));
         break;
     case HOLD_EFFECT_LIGHT_BALL:
-        if ((gBattleMons[battlerAtk].species == SPECIES_PIKACHU          	 ||
-			 gBattleMons[battlerAtk].species == SPECIES_RAICHU          	 ||
-			 gBattleMons[battlerAtk].species == SPECIES_PICHU           	 ||
-			 gBattleMons[battlerAtk].species == SPECIES_MINUN           	 ||
-			 gBattleMons[battlerAtk].species == SPECIES_PLUSLE          	 ||
-			 gBattleMons[battlerAtk].species == SPECIES_PACHIRISU       	 ||
-			 gBattleMons[battlerAtk].species == SPECIES_EMOLGA          	 ||
-			 gBattleMons[battlerAtk].species == SPECIES_DEDENNE         	 ||
-			 gBattleMons[battlerAtk].species == SPECIES_TOGEDEMARU      	 ||
-			 gBattleMons[battlerAtk].species == SPECIES_MORPEKO         	 ||
-			 gBattleMons[battlerAtk].species == SPECIES_MORPEKO_HANGRY  	 ||
-			 gBattleMons[battlerAtk].species == SPECIES_PIKACHU_PARTNER_CAP  ||
-			 gBattleMons[battlerAtk].species == SPECIES_RAICHU_ALOLAN)       && 
-			 IS_BATTLER_MOVE_SPECIAL(move, battlerAtk) 						 &&
+        if (gBattleMons[battlerAtk].species == SPECIES_PIKACHU)
+            MulModifier(&modifier, UQ_4_12(2.0));
+        if (GET_BASE_SPECIES_ID(gBattleMons[battlerAtk].species) == SPECIES_RAICHU &&
 			 !FlagGet(FLAG_NO_EVOLUTION_MODE))
             MulModifier(&modifier, UQ_4_12(1.5));
         break;

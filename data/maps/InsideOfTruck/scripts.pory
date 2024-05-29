@@ -1003,16 +1003,16 @@ Text_Take_Starter1:
 Text_Received_Starter1:
 	.string "{PLAYER} received a Meowth!$"
 	
-//Slugma
+//Slugma -> koko
 Script_Give_Starter2:
 	lock
 	faceplayer
-	showmonpic SPECIES_SLUGMA, 10, 3
+	showmonpic SPECIES_TAPU_KOKO, 10, 3
 	msgbox Text_Take_Starter2, MSGBOX_YESNO
 	hidemonpic
 	compare VAR_RESULT, NO
 	goto_if_eq Start_EventScript_Chose_Starter
-	givecustommon SPECIES_SLUGMA, 10, ITEM_NONE, ITEM_POKE_BALL, NATURE_MODEST, 1, 0, 0, 0, 0, 0, 0, 15, 15, 15, 31, 31, 15, MOVE_YAWN, MOVE_SMOG, MOVE_EMBER, MOVE_EARTH_POWER
+	givecustommon SPECIES_TAPU_KOKO, 10, ITEM_NONE, ITEM_POKE_BALL, NATURE_TIMID, 1, 0, 0, 0, 0, 0, 0, 15, 15, 15, 31, 31, 15, MOVE_YAWN, MOVE_SMOG, MOVE_EMBER, MOVE_THUNDER_SHOCK
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox Text_Received_Starter2, MSGBOX_DEFAULT
 	setflag FLAG_SYS_POKEMON_GET
@@ -1021,8 +1021,8 @@ Script_Give_Starter2:
 	end
 
 Text_Take_Starter2:
-	.string "Do you want the Lava Pokémon\n"
-	.string "Slugma?$"
+	.string "Do you want Land Spirit Pokémon\n"
+	.string "Tapu Koko?$"
 
 Text_Received_Starter2:
 	.string "{PLAYER} received a Slugma!$"
@@ -1069,7 +1069,7 @@ Script_Give_Starter4::
 	end
 
 Text_Take_Starter4:
-	.string "Do you want BoltStrike Pokémon\n"
+	.string "Do you want Bolt Strike Pokémon\n"
 	.string "Thundurus?$"
 
 Text_Received_Starter4:
@@ -1123,16 +1123,16 @@ Text_Take_Starter6:
 Text_Received_Starter6:
 	.string "{PLAYER} received a Skiddo!$"
 	
-//Sandygast
+//Sandygast -> lele
 Script_Give_Starter7::
 	lock
 	faceplayer
-	showmonpic SPECIES_SANDYGAST, 10, 3
+	showmonpic SPECIES_TAPU_LELE, 10, 3
 	msgbox Text_Take_Starter7, MSGBOX_YESNO
 	hidemonpic
 	compare VAR_RESULT, NO
 	goto_if_eq Start_EventScript_Chose_Starter
-	givecustommon SPECIES_SANDYGAST, 10, ITEM_NONE, ITEM_POKE_BALL, NATURE_MODEST, 1, 0, 0, 0, 0, 0, 0, 15, 15, 15, 15, 31, 31, MOVE_HARDEN, MOVE_ABSORB, MOVE_ASTONISH, MOVE_ANCIENT_POWER
+	givecustommon SPECIES_TAPU_LELE, 10, ITEM_NONE, ITEM_POKE_BALL, NATURE_TIMID, 1, 0, 0, 0, 0, 0, 0, 15, 15, 15, 15, 31, 31, MOVE_AROMATHERAPY, MOVE_CONFUSION, MOVE_DRAINING_KISS, MOVE_PSYWAVE
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox Text_Received_Starter7, MSGBOX_DEFAULT
 	setflag FLAG_SYS_POKEMON_GET
@@ -1141,11 +1141,11 @@ Script_Give_Starter7::
 	end
 
 Text_Take_Starter7:
-	.string "Do you want the Sand Heap Pokémon\n"
-	.string "Sandygast?$"
+	.string "Do you want Land Spirit Pokémon\n"
+	.string "Tapu Lele?$"
 
 Text_Received_Starter7:
-	.string "{PLAYER} received a Sandygast!$"
+	.string "{PLAYER} received a Tapu Lele!$"
 	
 //Cufant
 Script_Give_Starter8::

@@ -7110,7 +7110,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroup1 = EGG_GROUP_MONSTER,
         .eggGroup2 = EGG_GROUP_DRAGON,
-        .abilities = {ABILITY_OVERGROW, ABILITY_UNBURDEN},
+        .abilities = {ABILITY_OVERGROW, ABILITY_LIGHTNING_ROD},
         .abilityHidden = ABILITY_UNBURDEN,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
@@ -18024,7 +18024,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup2 = EGG_GROUP_UNDISCOVERED,
         #ifdef BATTLE_ENGINE
             .abilities = {ABILITY_PRANKSTER, ABILITY_REGENERATOR},
-            .abilityHidden = ABILITY_AIR_CURRENT,
+            .abilityHidden = ABILITY_COMPETITIVE,
         #else
             .abilities = {ABILITY_NONE, ABILITY_NONE},
         #endif
@@ -18053,7 +18053,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup2 = EGG_GROUP_UNDISCOVERED,
         #ifdef BATTLE_ENGINE
             .abilities = {ABILITY_PRANKSTER, ABILITY_LIGHTNING_ROD},
-            .abilityHidden = ABILITY_DEFIANT,
+            .abilityHidden = ABILITY_COMPETITIVE,
         #else
             .abilities = {ABILITY_NONE, ABILITY_NONE},
         #endif
@@ -25945,8 +25945,8 @@ const struct BaseStats gBaseStats[] =
         .baseHP        = 100,
         .baseAttack    = 160,
         .baseDefense   = 110,
-        .baseSpeed     = 80,
-        .baseSpAttack  = 75,
+        .baseSpeed     = 70,
+        .baseSpAttack  = 85,
         .baseSpDefense = 110,
         .type1 = TYPE_WATER,
         .type2 = TYPE_GROUND,
@@ -30097,7 +30097,7 @@ const struct BaseStats gBaseStats[] =
         .baseAttack    = 100,
         .baseDefense   = 80,
         .baseSpeed     = 121,
-        .baseSpAttack  = 110,
+        .baseSpAttack  = 115,
         .baseSpDefense = 90,
         .type1 = TYPE_FLYING,
         .type2 = TYPE_FLYING,
@@ -30125,7 +30125,7 @@ const struct BaseStats gBaseStats[] =
         .baseAttack    = 105,
         .baseDefense   = 70,
         .baseSpeed     = 101,
-        .baseSpAttack  = 145,
+        .baseSpAttack  = 150,
         .baseSpDefense = 80,
         .type1 = TYPE_ELECTRIC,
         .type2 = TYPE_FLYING,

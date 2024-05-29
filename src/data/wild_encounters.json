@@ -1359,12 +1359,12 @@
               {
                 "min_level": 22,
                 "max_level": 22,
-                "species": "SPECIES_HONEDGE"
+                "species": "SPECIES_LANDORUS_THERIAN"
               },
               {
                 "min_level": 22,
                 "max_level": 22,
-                "species": "SPECIES_STUNFISK"
+                "species": "SPECIES_LANDORUS"
               }
             ]
           },
@@ -4491,17 +4491,17 @@
               {
                 "min_level": 20,
                 "max_level": 25,
-                "species": "SPECIES_CARVANHA"
+                "species": "SPECIES_FEEBAS"
               },
               {
                 "min_level": 35,
                 "max_level": 40,
-                "species": "SPECIES_FEEBAS"
+                "species": "SPECIES_TORNADUS"
               },
               {
                 "min_level": 40,
                 "max_level": 45,
-                "species": "SPECIES_FEEBAS"
+                "species": "SPECIES_TORNADUS_THERIAN"
               }
             ]
           }
@@ -5937,12 +5937,12 @@
               {
                 "min_level": 35,
                 "max_level": 40,
-                "species": "SPECIES_WAILMER"
+                "species": "SPECIES_THUNDURUS"
               },
               {
                 "min_level": 40,
                 "max_level": 45,
-                "species": "SPECIES_WAILMER"
+                "species": "SPECIES_THUNDURUS_THERIAN"
               }
             ]
           }
@@ -10496,7 +10496,7 @@
               {
                 "min_level": 30,
                 "max_level": 30,
-                "species": "SPECIES_ARCTOZOLT"
+                "species": "SPECIES_KYUREM"
               }
             ]
           }
@@ -12690,7 +12690,7 @@
               {
                 "min_level": 8,
                 "max_level": 8,
-                "species": "SPECIES_AERODACTYL"
+                "species": "SPECIES_DIANCIE"
               },
               {
                 "min_level": 14,

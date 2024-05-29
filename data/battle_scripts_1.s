@@ -378,7 +378,10 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectRisingVoltage				@ EFFECT_RISING_VOLTAGE 			357
 	.4byte BattleScript_EffectNoRetreat 				@ EFFECT_NO_RETREAT					358
 	.4byte BattleScript_EffectJawLock 					@ EFFECT_JAW_LOCK					359
-
+	.4byte BattleScript_EffectScorchingSands 			@ EFFECT_SCORCHING_SANDS			360
+BattleScript_EffectScorchingSands:
+	setmoveeffect MOVE_EFFECT_BURN
+	goto BattleScript_EffectHit
 BattleScript_EffectJawLock:
 	setmoveeffect MOVE_EFFECT_TRAP_BOTH | MOVE_EFFECT_CERTAIN
 	goto BattleScript_EffectHit
