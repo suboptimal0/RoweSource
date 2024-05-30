@@ -6185,7 +6185,7 @@
               {
                 "min_level": 40,
                 "max_level": 45,
-                "species": "SPECIES_KELDEO"
+                "species": "SPECIES_KELDEO_RESOLUTE"
               }
             ]
           }
@@ -10491,12 +10491,12 @@
               {
                 "min_level": 32,
                 "max_level": 32,
-                "species": "SPECIES_CRYOGONAL"
+                "species": "SPECIES_KYUREM"
               },
               {
                 "min_level": 30,
                 "max_level": 30,
-                "species": "SPECIES_KYUREM"
+                "species": "SPECIES_KYUREM_BLACK"
               }
             ]
           }

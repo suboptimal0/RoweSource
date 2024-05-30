@@ -11371,7 +11371,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_THUNDEROUS_KICK] =
     {
         .effect = EFFECT_DEFENSE_DOWN_HIT,
-        .power = 80,
+        .power = 90,
         .type = TYPE_ELECTRIC,
         .accuracy = 100,
         .pp = 10,
@@ -11426,7 +11426,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 };
 
 const struct SignatureMove gSignatureMoveList[NUM_SPECIES] = {
-    [SPECIES_KELDEO] = 
+    [SPECIES_KELDEO] =  // replacement for aqua cutter
     {
         .move = MOVE_RAZOR_SHELL,
         .modification = SIGNATURE_MOD_PSS_CHANGE,
@@ -11439,6 +11439,15 @@ const struct SignatureMove gSignatureMoveList[NUM_SPECIES] = {
         .move = MOVE_CUT,
         .modification = SIGNATURE_MOD_POWER,
         .variable = 80,
+        .differentDescription = FALSE,
+        .description = _("Default Description"),
+    },
+    [SPECIES_GRENINJA_ASH] =
+    {
+        .move = MOVE_WATER_SHURIKEN,
+        .modification = SIGNATURE_MOD_POWER,
+        .variable = 20,
+        .modification2 = SIGNATURE_MOD_OTHER,
         .differentDescription = FALSE,
         .description = _("Default Description"),
     },
