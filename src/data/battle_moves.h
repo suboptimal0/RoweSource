@@ -1100,7 +1100,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
             .pp = 20,
         #endif
         .effect = EFFECT_ABSORB,
-        .power = 20,
+        .power = 40,
         .type = TYPE_GRASS,
         .accuracy = 100,
         .secondaryEffectChance = 0,

@@ -7067,13 +7067,13 @@ const struct BaseStats gBaseStats[] =
     [SPECIES_GROVYLE] =
     {
         .baseHP        = 50,
-        .baseAttack    = 85,
+        .baseAttack    = 65,
         .baseDefense   = 45,
-        .baseSpAttack  = 65,
+        .baseSpAttack  = 85,
         .baseSpDefense = 65,
         .baseSpeed     = 95,
         .type1 = TYPE_GRASS,
-        .type2 = TYPE_GRASS,
+        .type2 = TYPE_DRAGON,
         .catchRate = 45,
         .expYield = 142,
         .evYield_Speed     = 2,
@@ -7083,7 +7083,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroup1 = EGG_GROUP_MONSTER,
         .eggGroup2 = EGG_GROUP_DRAGON,
-        .abilities = {ABILITY_OVERGROW, ABILITY_UNBURDEN},
+        .abilities = {ABILITY_OVERGROW, ABILITY_LIGHTNING_ROD},
         #ifdef BATTLE_ENGINE
             .abilityHidden = ABILITY_UNBURDEN,
         #endif
@@ -7094,9 +7094,9 @@ const struct BaseStats gBaseStats[] =
     [SPECIES_SCEPTILE] =
     {
         .baseHP        = 70,
-        .baseAttack    = 110,
+        .baseAttack    = 85,
         .baseDefense   = 65,
-        .baseSpAttack  = 85,
+        .baseSpAttack  = 110,
         .baseSpDefense = 85,
         .baseSpeed     = 120,
         .type1 = TYPE_GRASS,
@@ -52284,7 +52284,7 @@ const struct BaseStats gVanillaBaseStats[] =
         .eggGroup1 = EGG_GROUP_UNDISCOVERED,
         .eggGroup2 = EGG_GROUP_UNDISCOVERED,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_PRANKSTER, ABILITY_NONE},
+            .abilities = {ABILITY_PRANKSTER, ©},
             .abilityHidden = ABILITY_DEFIANT,
         #else
             .abilities = {ABILITY_NONE, ABILITY_NONE},
