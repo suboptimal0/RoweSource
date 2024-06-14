@@ -8175,7 +8175,7 @@ static u32 CalcMoveBasePowerAfterModifiers(u16 move, u8 battlerAtk, u8 battlerDe
         break;
 	case ABILITY_CACOPHONY:
 		if (gBattleMoves[move].flags & FLAG_SOUND)
-			MulModifier(&modifier, UQ_4_12(1.5));
+			MulModifier(&modifier, UQ_4_12(1.3));
         break;
     case ABILITY_POWER_SPOT:
         MulModifier(&modifier, UQ_4_12(1.3));
@@ -8572,7 +8572,10 @@ static u32 CalcAttackStat(u16 move, u8 battlerAtk, u8 battlerDef, u8 moveType, b
     switch (GetBattlerHoldEffect(battlerAtk, TRUE))
     {
     case HOLD_EFFECT_THICK_CLUB:
-        if ((gBattleMons[battlerAtk].species == SPECIES_CUBONE || gBattleMons[battlerAtk].species == SPECIES_MAROWAK) && IS_BATTLER_MOVE_PHYSICAL(move, battlerAtk))
+        if ((gBattleMons[battlerAtk].species == SPECIES_CUBONE ||
+            gBattleMons[battlerAtk].species == SPECIES_MAROWAK ||
+            gBattleMons[battlerAtk].species == SPECIES_MAROWAK_ALOLAN) 
+            && IS_BATTLER_MOVE_PHYSICAL(move, battlerAtk))
             MulModifier(&modifier, UQ_4_12(2.0));
         break;
     case HOLD_EFFECT_DEEP_SEA_TOOTH:
@@ -8587,7 +8590,8 @@ static u32 CalcAttackStat(u16 move, u8 battlerAtk, u8 battlerDef, u8 moveType, b
     case HOLD_EFFECT_LIGHT_BALL:
         if (gBattleMons[battlerAtk].species == SPECIES_PIKACHU)
             MulModifier(&modifier, UQ_4_12(2.0));
-        if (GET_BASE_SPECIES_ID(gBattleMons[battlerAtk].species) == SPECIES_RAICHU &&
+        if ((gBattleMons[battlerAtk].species == SPECIES_RAICHU ||
+            gBattleMons[battlerAtk].species == SPECIES_RAICHU_ALOLAN) &&
 			 !FlagGet(FLAG_NO_EVOLUTION_MODE))
             MulModifier(&modifier, UQ_4_12(1.5));
         break;
