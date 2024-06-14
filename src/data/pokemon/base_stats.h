@@ -52284,7 +52284,7 @@ const struct BaseStats gVanillaBaseStats[] =
         .eggGroup1 = EGG_GROUP_UNDISCOVERED,
         .eggGroup2 = EGG_GROUP_UNDISCOVERED,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_PRANKSTER, ©},
+            .abilities = {ABILITY_PRANKSTER, ABILITY_PRANKSTER},
             .abilityHidden = ABILITY_DEFIANT,
         #else
             .abilities = {ABILITY_NONE, ABILITY_NONE},
