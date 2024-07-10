@@ -3071,7 +3071,7 @@ static const u8 sPinsirTutorLearnset[] =
     0xFF,
 };
 
-static const u8 sfrosTutorLearnset[] =
+static const u8 sTaurosTutorLearnset[] =
 {
     TUTOR(MOVE_BODY_SLAM),
     TUTOR(MOVE_DOUBLE_EDGE),
