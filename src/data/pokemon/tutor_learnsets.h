@@ -3071,7 +3071,7 @@ static const u8 sPinsirTutorLearnset[] =
     0xFF,
 };
 
-static const u8 sTaurosTutorLearnset[] =
+static const u8 sfrosTutorLearnset[] =
 {
     TUTOR(MOVE_BODY_SLAM),
     TUTOR(MOVE_DOUBLE_EDGE),
@@ -11199,6 +11199,7 @@ static const u8 sMamoswineTutorLearnset[] =
     TUTOR(MOVE_BODY_PRESS),
     TUTOR(MOVE_KNOCK_OFF),
     TUTOR(MOVE_SUPERPOWER),
+    TUTOR(MOVE_CLOSE_COMBAT),
     TUTOR(MOVE_ROCK_SMASH),
     TUTOR(MOVE_STRENGTH),
     TUTOR(MOVE_ICE_FANG),

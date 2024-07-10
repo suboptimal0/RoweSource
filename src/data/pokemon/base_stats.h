@@ -7938,7 +7938,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_WATER_1,
         .eggGroup2 = EGG_GROUP_BUG,
         .abilities = {ABILITY_INTIMIDATE, ABILITY_KEEN_EYE},
-        .abilityHidden = ABILITY_AIR_CURRENT,
+        .abilityHidden = ABILITY_KEEN_EYE,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
     },

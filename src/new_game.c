@@ -447,7 +447,7 @@ void NewGameInitData(void)
         ResetGameStats();
         ResetPokedex();
         ClearPokedexFlags();
-        SetMoney(&gSaveBlock1Ptr->money, 3000);
+        SetMoney(&gSaveBlock1Ptr->money, 300000);
         SetCoins(0);
         ResetPokemonStorageSystem();
         NewGameInitPCItems();

@@ -1012,7 +1012,7 @@ Script_Give_Starter2:
 	hidemonpic
 	compare VAR_RESULT, NO
 	goto_if_eq Start_EventScript_Chose_Starter
-	givecustommon SPECIES_TAPU_KOKO, 10, ITEM_NONE, ITEM_POKE_BALL, NATURE_TIMID, 1, 0, 0, 0, 0, 0, 0, 15, 15, 15, 31, 31, 15, MOVE_YAWN, MOVE_SMOG, MOVE_EMBER, MOVE_THUNDER_SHOCK
+	givecustommon SPECIES_TAPU_KOKO, 10, ITEM_NONE, ITEM_POKE_BALL, NATURE_HASTY, 1, 0, 0, 0, 0, 0, 0, 15, 15, 15, 31, 31, 15, MOVE_FALSE_SWIPE, MOVE_FAIRY_WIND, MOVE_QUICK_ATTACK, MOVE_THUNDER_SHOCK
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox Text_Received_Starter2, MSGBOX_DEFAULT
 	setflag FLAG_SYS_POKEMON_GET
@@ -1025,7 +1025,7 @@ Text_Take_Starter2:
 	.string "Tapu Koko?$"
 
 Text_Received_Starter2:
-	.string "{PLAYER} received a Slugma!$"
+	.string "{PLAYER} received a Tapu Koko!$"
 	
 //Barboach
 Script_Give_Starter3::
@@ -1171,16 +1171,16 @@ Text_Take_Starter8:
 Text_Received_Starter8:
 	.string "{PLAYER} received a Cufant!$"	
 	
-//Smeargle
+//Smeargle -> Kartana
 Script_Give_Starter9::
 	lock
 	faceplayer
-	showmonpic SPECIES_SMEARGLE, 10, 3
+	showmonpic SPECIES_KARTANA, 10, 3
 	msgbox Text_Take_Starter9, MSGBOX_YESNO
 	hidemonpic
 	compare VAR_RESULT, NO
 	goto_if_eq Start_EventScript_Chose_Starter
-	givecustommon SPECIES_SMEARGLE, 10, ITEM_NONE, ITEM_POKE_BALL, NATURE_JOLLY, 1, 0, 0, 0, 0, 0, 0, 15, 31, 15, 31, 15, 15, MOVE_SKETCH, MOVE_POUND, MOVE_BITE, MOVE_CELEBRATE
+	givecustommon SPECIES_KARTANA, 10, ITEM_NONE, ITEM_POKE_BALL, NATURE_JOLLY, 1, 0, 0, 0, 0, 0, 0, 15, 31, 15, 31, 15, 15, MOVE_RAZOR_LEAF, MOVE_FALSE_SWIPE, MOVE_FURY_CUTTER, MOVE_CUT
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox Text_Received_Starter9, MSGBOX_DEFAULT
 	setflag FLAG_SYS_POKEMON_GET
@@ -1189,11 +1189,11 @@ Script_Give_Starter9::
 	end
 
 Text_Take_Starter9:
-	.string "Do you want the Painter Pokémon\n"
-	.string "Smeargle?$"
+	.string "Do you want Drawn Sword Pokémon\n"
+	.string "Kartana?$"
 
 Text_Received_Starter9:
-	.string "{PLAYER} received a Smeargle!$"
+	.string "{PLAYER} received a Kartana!$"
 	
 Script_Give_Starter10::
 	lock
@@ -1309,7 +1309,8 @@ Start_EventScript_Give_Items::
 	additem ITEM_OLD_ROD
 	additem ITEM_EXP_SHARE
 	additem ITEM_POTION, 5
-	additem ITEM_POKE_BALL, 10
+	additem ITEM_BEAST_BALL, 14
+	additem ITEM_CHERISH_BALL, 34
 	additem ITEM_REPEL, 3
 	waitfanfare
 	goto Start_EventScript_Chose_City

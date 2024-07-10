@@ -11429,7 +11429,7 @@ const struct SignatureMove gSignatureMoveList[NUM_SPECIES] = {
     [SPECIES_KELDEO] =  // replacement for aqua cutter
     {
         .move = MOVE_RAZOR_SHELL,
-        .modification = SIGNATURE_MOD_PSS_CHANGE,
+        .modification = SIGNATURE_MOD_PSS_CHANGE,scr
         .variable= SPLIT_SPECIAL,
         .differentDescription = FALSE,
         .description = _("Default Description"),
