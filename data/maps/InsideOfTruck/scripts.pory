@@ -1312,6 +1312,12 @@ Start_EventScript_Give_Items::
 	additem ITEM_BEAST_BALL, 14
 	additem ITEM_CHERISH_BALL, 34
 	additem ITEM_REPEL, 3
+	additem ITEM_POWER_WEIGHT, 1
+	additem ITEM_POWER_BRACER, 1
+	additem ITEM_POWER_BELT, 1
+	additem ITEM_POWER_LENS, 1
+	additem ITEM_POWER_BAND, 1
+	additem ITEM_POWER_ANKLET, 1
 	additem ITEM_ULTRA_BALL, 99
 	additem ITEM_DUSK_BALL, 50
 	additem ITEM_MASTER_BALL, 20
