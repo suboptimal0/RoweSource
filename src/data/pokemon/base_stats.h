@@ -4068,11 +4068,11 @@ const struct BaseStats gBaseStats[] =
     [SPECIES_MOLTRES] =
     {
         .baseHP        = 90,
-        .baseAttack    = 100,
-        .baseDefense   = 90,
-        .baseSpeed     = 90,
+        .baseAttack    = 80,
+        .baseDefense   = 95,
+        .baseSpeed     = 95,
         .baseSpAttack  = 125,
-        .baseSpDefense = 85,
+        .baseSpDefense = 95,
         .type1 = TYPE_FIRE,
         .type2 = TYPE_FLYING,
         .catchRate = 3,
@@ -18477,7 +18477,7 @@ const struct BaseStats gBaseStats[] =
     [SPECIES_GRENINJA] =
     {
         .baseHP        = 72,
-        .baseAttack    = 95,
+        .baseAttack    = 100,
         .baseDefense   = 67,
         .baseSpeed     = 122,
         .baseSpAttack  = 103,
