@@ -1321,6 +1321,7 @@ Start_EventScript_Give_Items::
 	additem ITEM_ULTRA_BALL, 99
 	additem ITEM_DUSK_BALL, 50
 	additem ITEM_MASTER_BALL, 20
+	additem ITEM_TERRAIN_EXTENDER, 1
 	waitfanfare
 	goto Start_EventScript_Chose_City
 	end
