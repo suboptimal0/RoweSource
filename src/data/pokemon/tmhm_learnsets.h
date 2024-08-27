@@ -36919,6 +36919,7 @@ const u8 *const gTMHMLearnsets[] =
     [SPECIES_GUZZLORD] = sGuzzlordTMHMLearnset,
     [SPECIES_NECROZMA] = sNecrozmaTMHMLearnset,
     [SPECIES_MAGEARNA] = sMagearnaTMHMLearnset,
+		[SPECIES_MAGEARNA_ORIGINAL_COLOR] = sMagearnaTMHMLearnset,
     [SPECIES_MARSHADOW] = sMarshadowTMHMLearnset,
     [SPECIES_POIPOLE] = sPoipoleTMHMLearnset,
     [SPECIES_NAGANADEL] = sNaganadelTMHMLearnset,
