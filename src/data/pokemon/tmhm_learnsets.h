@@ -5320,6 +5320,7 @@ static const u8 sGyaradosTMHMLearnset[] =
     TMHM(TM97_DARK_PULSE),
     TMHM(TM98_WATERFALL),
     TMHM(TM100_CONFIDE),
+    TMHM(TM102_LIQUIDATION),
     TMHM(TM116_DRAGON_DANCE),
     0xFF,
 };
