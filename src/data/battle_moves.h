@@ -11260,7 +11260,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_SCORCHING_SANDS] =
     {
         .effect = EFFECT_SCORCHING_SANDS,
-        .power = 70,
+        .power = 75,
         .type = TYPE_GROUND,
         .accuracy = 100,
         .pp = 10,
