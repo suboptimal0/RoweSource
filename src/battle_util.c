@@ -8011,10 +8011,6 @@ static u16 CalcMoveBasePower(u16 move, u8 battlerAtk, u8 battlerDef)
 		if(gFieldStatuses & STATUS_FIELD_ELECTRIC_TERRAIN && IsBattlerGrounded(battlerAtk))
             basePower *= 2;
 		break;
-    case EFFECT_SCORCHING_SANDS:
-        if (WEATHER_HAS_EFFECT && gBattleWeather & WEATHER_SANDSTORM_ANY)
-            basePower = 113;
-    break;
     }
 
     //For Signature Moves
@@ -8374,6 +8370,10 @@ static u32 CalcMoveBasePowerAfterModifiers(u16 move, u8 battlerAtk, u8 battlerDe
         if (gBattleMons[battlerDef].item != ITEM_NONE && GetBattlerAbility(battlerDef) != ABILITY_STICKY_HOLD)
             MulModifier(&modifier, UQ_4_12(1.5));
         break;
+    case EFFECT_SCORCHING_SANDS:
+        if (WEATHER_HAS_EFFECT && gBattleWeather & WEATHER_SANDSTORM_ANY)
+            MulModifier(&modifier, UQ_4_12(1.5));
+	    break;
     }
 
     // various effecs
