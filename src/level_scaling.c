@@ -90,7 +90,7 @@ const u8 Normal_Mode_Min_Wild_Pokemon_Level[]          =  {5,10,15,20,25,31,37,4
 const u8 Hard_Mode_Trainer_Max_Pokemon_Number[]      = {3,3,4,4,4,5,5,6,6,6,6};				//Trainers Number of Pokemon
 const u8 Hard_Mode_Boss_Pokemon_Number[]             = {3,4,4,5,5,6,6,6,6,6,6};				//Gym Leaders Number of Pokemon
 const u8 Hard_Mode_Double_Max_Pokemon_Number[]       = {2,2,2,2,2,2,3,3,3,3,3};				//Number of Pokemon in a Double Battle
-const u8 Hard_Mode_Boss_Pokemon_Min_Level[] 	     = {13,19,25,31,38,45,51,62,70,78,85};	//Levels for Gym Leaders
+const u8 Hard_Mode_Boss_Pokemon_Min_Level[] 	     = {13,19,25,31,38,45,51,62,70,77,85};	//Levels for Gym Leaders
 const u8 Hard_Mode_Trainer_Pokemon_Min_Level[]       =  {7,13,19,25,32,38,44,50,57,67,73};	//Levels for Trainer Pokemon
 const u8 Hard_Mode_Min_Wild_Pokemon_Level[]          =  {5,11,16,21,26,32,38,45,52,62,68};	//Levels for Wild Pokemon
 
