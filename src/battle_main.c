@@ -5090,8 +5090,6 @@ s8 getModifiedMovePriority(u16 move, u8 battlerId){
 
     //Boss Pokemon
     switch(speciesId){
-        case SPECIES_PIKACHU_PARTNER_CAP:
-            priority++;
         break;
     }
 
