@@ -5504,6 +5504,8 @@ static void TryChangeTurnOrder(void)
             }
         }
     }
+	gBattleMainFunc = CheckFocusPunch_ClearVarsBeforeTurnStarts;
+    gBattleStruct->focusPunchBattlerId = 0;
 }
 
 static void RunTurnActionsFunctions(void)
