@@ -113,6 +113,7 @@ static void RunTurnActionsFunctions(void);
 static void SetActionsAndBattlersTurnOrder(void);
 static void sub_803CDF8(void);
 static bool8 AllAtActionConfirmed(void);
+static void TryChangeTurnOrder(void);
 static void CheckFocusPunch_ClearVarsBeforeTurnStarts(void);
 static void CheckMegaEvolutionBeforeTurn(void);
 static void FreeResetData_ReturnToOvOrDoEvolutions(void);
@@ -5432,9 +5433,12 @@ static void CheckMegaEvolutionBeforeTurn(void)
             }
         }
     }
-
-    gBattleMainFunc = CheckFocusPunch_ClearVarsBeforeTurnStarts;
-    gBattleStruct->focusPunchBattlerId = 0;
+	#if B_MEGA_EVO_TURN_ORDER <= GEN_6
+    	gBattleMainFunc = CheckFocusPunch_ClearVarsBeforeTurnStarts;
+    	gBattleStruct->focusPunchBattlerId = 0;
+	#else
+        gBattleMainFunc = TryChangeTurnOrder; // This will just do nothing if no mon has mega evolved
+    #endif 
 }
 
 static void CheckFocusPunch_ClearVarsBeforeTurnStarts(void)
@@ -5479,6 +5483,27 @@ static void CheckFocusPunch_ClearVarsBeforeTurnStarts(void)
     gBattleCommunication[4] = 0;
     gBattleScripting.multihitMoveEffect = 0;
     gBattleResources->battleScriptsStack->size = 0;
+}
+
+// In gen7, priority and speed are recalculated during the turn in which a pokemon mega evolves
+static void TryChangeTurnOrder(void)
+{
+    u32 i, j;
+    for (i = 0; i < gBattlersCount - 1; i++)
+    {
+        for (j = i + 1; j < gBattlersCount; j++)
+        {
+            u32 battler1 = gBattlerByTurnOrder[i];
+            u32 battler2 = gBattlerByTurnOrder[j];
+
+            if (gActionsByTurnOrder[i] == B_ACTION_USE_MOVE
+                && gActionsByTurnOrder[j] == B_ACTION_USE_MOVE)
+            {
+                if (GetWhichBattlerFaster(battler1, battler2, FALSE) == -1)
+                    SwapTurnOrder(i, j);
+            }
+        }
+    }
 }
 
 static void RunTurnActionsFunctions(void)
