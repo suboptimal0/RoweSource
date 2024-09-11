@@ -9,6 +9,8 @@
     #define GEN_7 4
     #define GEN_8 5
 #endif
+// Mega Evolution settings
+#define B_MEGA_EVO_TURN_ORDER GEN_7 // In Gen7, a Pokémon's Speed after Mega Evolution is used to determine turn order, not its Speed before.
 
 // Calculation settings
 #define B_CRIT_CHANCE               GEN_8 // Chances of a critical hit landing. See CalcCritChanceStage.
