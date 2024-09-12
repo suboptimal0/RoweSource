@@ -4339,7 +4339,7 @@ u8 IsRunningFromBattleImpossible(void)
     return 0;
 }
 
-void SwitchPartyOrder(u8 battler)
+void SwitchPartyOrder(u32 battler)
 {
     s32 i;
     u8 partyId1;
@@ -5850,11 +5850,11 @@ u8 getMoveBasePower(u16 move, u16 speciesId, u16 ability){
 	switch(speciesId){
 		case SPECIES_PIKACHU_PARTNER_CAP:
 			if(move == MOVE_VOLT_TACKLE)
-				movePower = 130;
+				movePower = 120;
 			else if(move == MOVE_PLAY_ROUGH)
-				movePower = 100;
+				movePower = 90;
 			else if(move == MOVE_GRASS_KNOT)
-				movePower = 100;
+				movePower = 80;
         break;
 	}
 
