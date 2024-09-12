@@ -524,7 +524,7 @@ bool32 IsTruantMonVulnerable(u32 battlerAI, u32 opposingBattler)
         u32 move = gBattleResources->battleHistory->usedMoves[opposingBattler].moves[i];
         if (gBattleMoves[move].effect == EFFECT_PROTECT && move != MOVE_ENDURE)
             return TRUE;
-        if (gBattleMoves[move].effect == EFFECT_SEMI_INVULNERABLE && GetWhoStrikesFirst(battlerAI, opposingBattler, TRUE) == 1)
+        if (gBattleMoves[move].effect == EFFECT_SEMI_INVULNERABLE && GetWhichBattlerFaster(battlerAI, opposingBattler, TRUE) == 1)
             return TRUE;
     }
     return FALSE;
