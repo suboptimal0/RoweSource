@@ -4137,7 +4137,7 @@ static void TryDoEventsBeforeFirstTurn(void)
         {
             for (j = i + 1; j < gBattlersCount; j++)
             {
-                if (GetWhoStrikesFirst(gBattlerByTurnOrder[i], gBattlerByTurnOrder[j], TRUE) != 0)
+				if (GetWhichBattlerFaster(gBattlerByTurnOrder[i], gBattlerByTurnOrder[j], TRUE) != 0)
                     SwapTurnOrder(i, j);
             }
         }
@@ -5302,7 +5302,7 @@ static void SetActionsAndBattlersTurnOrder(void)
                         && gActionsByTurnOrder[i] != B_ACTION_THROW_BALL
                         && gActionsByTurnOrder[j] != B_ACTION_THROW_BALL)
                     {
-                        if (GetWhoStrikesFirst(battler1, battler2, FALSE))
+                        if (GetWhichBattlerFaster(battler1, battler2, FALSE))
                             SwapTurnOrder(i, j);
                     }
                 }
@@ -6086,7 +6086,7 @@ u8 getMoveSecondaryEffectChance(u16 move, u16 speciesId){
     return chances;
 }
 
-void SetTypeBeforeUsingMove(u16 move, u8 battlerAtk)
+void SetTypeBeforeUsingMove(u32 move, u32 battlerAtk)
 {
     u32 moveType, ateType, attackerAbility, sigMoveType;
     u16 species = gBattleMons[battlerAtk].species;
