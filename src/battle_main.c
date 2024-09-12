@@ -5165,23 +5165,8 @@ u32 GetWhichBattlerFasterArgs(u32 battler1, u32 battler2, bool32 ignoreChosenMov
 {
     u32 strikesFirst = 0;
 
-    // Battler 1
-    // Quick Draw
-    if (!ignoreChosenMoves && ability1 == ABILITY_QUICK_DRAW && !IS_MOVE_STATUS(gChosenMoveByBattler[battler1]) && Random() % 100 < 30)
-        gProtectStructs[battler1].quickDraw = TRUE;
-        gProtectStructs[battler1].usedCustapBerry = TRUE;
-
-    // Battler 2
-    // Quick Draw
-    if (!ignoreChosenMoves && ability2 == ABILITY_QUICK_DRAW && !IS_MOVE_STATUS(gChosenMoveByBattler[battler2]) && Random() % 100 < 30)
-        gProtectStructs[battler2].quickDraw = TRUE;
-     || (holdEffectBattler2 == HOLD_EFFECT_CUSTAP_BERRY && HasEnoughHpToEatBerry(battler2, 4, gBattleMons[battler2].item))))
-        gProtectStructs[battler2].usedCustapBerry = TRUE;
-
     if (priority1 == priority2)
-    {
-        // QUICK CLAW / CUSTAP - always first
-    return strikesFirst;
+    {return strikesFirst;}
 }
 
 u32 GetWhichBattlerFaster(u32 battler1, u32 battler2, bool32 ignoreChosenMoves)
