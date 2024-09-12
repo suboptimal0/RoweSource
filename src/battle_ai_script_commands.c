@@ -1677,7 +1677,7 @@ static void Cmd_if_user_goes(void)
     else
     {
         // Priorities are the same(at least comparing to moves the AI is aware of), decide by speed.
-        if (GetWhoStrikesFirst(sBattler_AI, gBattlerTarget, TRUE) == gAIScriptPtr[1])
+        if (GetWhichBattlerFaster(sBattler_AI, gBattlerTarget, TRUE) == gAIScriptPtr[1])
             gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
         else
             gAIScriptPtr += 6;
@@ -2903,7 +2903,7 @@ static void Cmd_compare_speeds(void)
 {
     u8 battler1 = BattleAI_GetWantedBattler(gAIScriptPtr[1]);
     u8 battler2 = BattleAI_GetWantedBattler(gAIScriptPtr[2]);
-    AI_THINKING_STRUCT->funcResult = GetWhoStrikesFirst(battler1, battler2, TRUE);
+    AI_THINKING_STRUCT->funcResult = GetWhichBattlerFaster(battler1, battler2, TRUE);
     gAIScriptPtr += 3;
 }
 
@@ -3027,7 +3027,7 @@ static u8 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, u8 score)
         }
         
         // check off screen
-        if (IsSemiInvulnerable(battlerDef, move) && moveEffect != EFFECT_SEMI_INVULNERABLE && GetWhoStrikesFirst(battlerAtk, battlerDef, TRUE) != 1)
+        if (IsSemiInvulnerable(battlerDef, move) && moveEffect != EFFECT_SEMI_INVULNERABLE && GetWhichBattlerFaster(battlerAtk, battlerDef, TRUE) != 1)
             RETURN_SCORE_MINUS(20);    // if target off screen and we go first, don't use move
         
         // check if negates type
@@ -3773,7 +3773,7 @@ static u8 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, u8 score)
               && (defHoldEffect != HOLD_EFFECT_MENTAL_HERB)
               && !PartnerHasSameMoveEffectWithoutTarget(battlerAtkPartner, move, partnerMove))
             {
-                if (GetWhoStrikesFirst(battlerAtk, battlerDef, TRUE) == 0) // attacker should go first
+                if (GetWhichBattlerFaster(battlerAtk, battlerDef, TRUE) == 0) // attacker should go first
                 {
                     if (gLastMoves[battlerDef] == MOVE_NONE || gLastMoves[battlerDef] == 0xFFFF)
                         score -= 10;    // no anticipated move to disable
@@ -3793,7 +3793,7 @@ static u8 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, u8 score)
               && (defHoldEffect != HOLD_EFFECT_MENTAL_HERB)
               && !DoesPartnerHaveSameMoveEffect(battlerAtkPartner, battlerDef, move, partnerMove))
             {
-                if (GetWhoStrikesFirst(battlerAtk, battlerDef, TRUE) == 0) // attacker should go first
+                if (GetWhichBattlerFaster(battlerAtk, battlerDef, TRUE) == 0) // attacker should go first
                 {
                     if (gLastMoves[battlerDef] == MOVE_NONE || gLastMoves[battlerDef] == 0xFFFF)
                         score -= 10;    // no anticipated move to encore
@@ -4233,7 +4233,7 @@ static u8 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, u8 score)
             break;
         case EFFECT_SPITE:
         case EFFECT_MIMIC:
-            if (GetWhoStrikesFirst(battlerAtk, battlerDef, TRUE) == 0) // attacker should go first
+            if (GetWhichBattlerFaster(battlerAtk, battlerDef, TRUE) == 0) // attacker should go first
             {
                 if (gLastMoves[battlerDef] == MOVE_NONE
                   || gLastMoves[battlerDef] == 0xFFFF)
@@ -4390,7 +4390,7 @@ static u8 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, u8 score)
             if (isDoubleBattle)
             {
                 if (IsHazardMoveEffect(gBattleMoves[partnerMove].effect) // partner is going to set up hazards
-                  && GetWhoStrikesFirst(battlerAtkPartner, battlerAtk, FALSE)) // partner is going to set up before the potential Defog
+                  && GetWhichBattlerFaster(battlerAtkPartner, battlerAtk, FALSE)) // partner is going to set up before the potential Defog
                 {
                     score -= 10;
                     break; // Don't use Defog if partner is going to set up hazards
@@ -4429,7 +4429,7 @@ static u8 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, u8 score)
             break;
         case EFFECT_SEMI_INVULNERABLE:
             if (predictedMove != MOVE_NONE
-              && GetWhoStrikesFirst(battlerAtk, battlerDef, TRUE) == 1
+              && GetWhichBattlerFaster(battlerAtk, battlerDef, TRUE) == 1
               && gBattleMoves[predictedMove].effect == EFFECT_SEMI_INVULNERABLE)
                 score -= 10; // Don't Fly/dig/etc if opponent is going to fly/dig/etc after you
 
@@ -4610,7 +4610,7 @@ static u8 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, u8 score)
         case EFFECT_ME_FIRST:
             if (predictedMove != MOVE_NONE)
             {
-                if (GetWhoStrikesFirst(battlerAtk, battlerDef, TRUE) == 1)
+                if (GetWhichBattlerFaster(battlerAtk, battlerDef, TRUE) == 1)
                     score -= 10;    // Target is predicted to go first, Me First will fail
                 else
                     return AI_CheckBadMove(battlerAtk, battlerDef, predictedMove, score);
@@ -4765,7 +4765,7 @@ static u8 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, u8 score)
             }
             break;
         case EFFECT_ELECTRIFY:
-            if (GetWhoStrikesFirst(battlerAtk, battlerDef, TRUE) == 0
+            if (GetWhichBattlerFaster(battlerAtk, battlerDef, TRUE) == 0
               //|| GetMoveTypeSpecial(battlerDef, predictedMove) == TYPE_ELECTRIC // Move will already be electric type
               || PartnerMoveIsSameAsAttacker(battlerAtkPartner, battlerDef, move, partnerMove))
                 score -= 10;
@@ -4794,7 +4794,7 @@ static u8 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, u8 score)
         /*case EFFECT_INSTRUCT:
             {
                 u16 instructedMove;
-                if (GetWhoStrikesFirst(battlerAtk, battlerDef, TRUE) == 1)
+                if (GetWhichBattlerFaster(battlerAtk, battlerDef, TRUE) == 1)
                     instructedMove = predictedMove;
                 else
                     instructedMove = gLastMoves[battlerDef];
@@ -4834,14 +4834,14 @@ static u8 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, u8 score)
             break;*/
         case EFFECT_QUASH:
             if (!isDoubleBattle
-            || GetWhoStrikesFirst(battlerAtk, battlerDef, TRUE) == 1
+            || GetWhichBattlerFaster(battlerAtk, battlerDef, TRUE) == 1
             || PartnerMoveIsSameAsAttacker(battlerAtkPartner, battlerDef, move, partnerMove))
                 score -= 10;
             break;
         case EFFECT_AFTER_YOU:
             if (!IsTargetingPartner(battlerAtk, battlerDef)
               || !isDoubleBattle
-              || GetWhoStrikesFirst(battlerAtk, battlerDef, TRUE) == 1
+              || GetWhichBattlerFaster(battlerAtk, battlerDef, TRUE) == 1
               || PartnerMoveIsSameAsAttacker(battlerAtkPartner, battlerDef, move, partnerMove))
                 score -= 10;
             break;
@@ -4850,7 +4850,7 @@ static u8 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, u8 score)
             {
                 if (Random() % 100 < 50) // Random chance to do something else. Makes AI less exploitable
                     score -= 5;
-                if (IS_MOVE_STATUS(predictedMove) || GetWhoStrikesFirst(battlerAtk, battlerDef, TRUE) == 1) // opponent going first
+                if (IS_MOVE_STATUS(predictedMove) || GetWhichBattlerFaster(battlerAtk, battlerDef, TRUE) == 1) // opponent going first
                     score -= 10;
             }
             break;
@@ -4902,7 +4902,7 @@ static u8 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, u8 score)
                 score--;    // don't want to move last
             break;
         case EFFECT_FLAIL:
-            if (GetWhoStrikesFirst(battlerAtk, battlerDef, TRUE) == 1 // opponent should go first
+            if (GetWhichBattlerFaster(battlerAtk, battlerDef, TRUE) == 1 // opponent should go first
               || GetHealthPercentage(battlerAtk) > 50)
                 score -= 4;
             break;
@@ -5502,7 +5502,7 @@ bool32 IsAiFaster(u8 battler)
     else
     {
         // Priorities are the same(at least comparing to moves the AI is aware of), decide by speed.
-        if (GetWhoStrikesFirst(sBattler_AI, gBattlerTarget, TRUE) == battler)
+        if (GetWhichBattlerFaster(sBattler_AI, gBattlerTarget, TRUE) == battler)
             return TRUE;
         else
             return FALSE;
