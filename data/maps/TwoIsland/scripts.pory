@@ -180,6 +180,7 @@ TwoIsland_Items_ShopExpanded3:: @ 8167738
 	.2byte ITEM_CLEVER_WING
 	.2byte ITEM_SWIFT_WING
 	.2byte ITEM_PRETTY_WING
+	.2byte ITEM_SACRED_ASH
 	.2byte ITEM_NONE
 	release
 	end
