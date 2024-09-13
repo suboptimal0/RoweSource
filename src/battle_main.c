@@ -5166,7 +5166,54 @@ u32 GetWhichBattlerFasterArgs(u32 battler1, u32 battler2, bool32 ignoreChosenMov
     u32 strikesFirst = 0;
 
     if (priority1 == priority2)
-    {return strikesFirst;}
+    {
+        // Quick Claw / Quick Draw / Custap Berry - always first
+        // Stall / Mycelium Might - last but before Lagging Tail
+        // Lagging Tail - always last
+        bool32 battler1HasStallingAbility = ability1 == ABILITY_STALL;
+        bool32 battler2HasStallingAbility = ability2 == ABILITY_STALL;
+        if (holdEffectBattler1 == HOLD_EFFECT_LAGGING_TAIL && holdEffectBattler2 != HOLD_EFFECT_LAGGING_TAIL)
+            strikesFirst = -1;
+        else if (holdEffectBattler2 == HOLD_EFFECT_LAGGING_TAIL && holdEffectBattler1 != HOLD_EFFECT_LAGGING_TAIL)
+            strikesFirst = 1;
+        else if (battler1HasStallingAbility && !battler2HasStallingAbility)
+            strikesFirst = -1;
+        else if (battler2HasStallingAbility && !battler1HasStallingAbility)
+            strikesFirst = 1;
+        else
+        {
+            if (speedBattler1 == speedBattler2)
+            {
+                // same speeds, same priorities
+                strikesFirst = 0;
+            }
+            else if (speedBattler1 < speedBattler2)
+            {
+                // battler2 has more speed
+                if (gFieldStatuses & STATUS_FIELD_TRICK_ROOM)
+                    strikesFirst = 1;
+                else
+                    strikesFirst = -1;
+            }
+            else
+            {
+                // battler1 has more speed
+                if (gFieldStatuses & STATUS_FIELD_TRICK_ROOM)
+                    strikesFirst = -1;
+                else
+                    strikesFirst = 1;
+            }
+        }
+    }
+    else if (priority1 < priority2)
+    {
+        strikesFirst = -1; // battler2's move has greater priority
+    }
+    else
+    {
+        strikesFirst = 1; // battler1's move has greater priority
+    }
+    return strikesFirst;
 }
 
 u32 GetWhichBattlerFaster(u32 battler1, u32 battler2, bool32 ignoreChosenMoves)
