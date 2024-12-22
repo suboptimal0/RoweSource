@@ -8161,6 +8161,10 @@ static u32 CalcMoveBasePowerAfterModifiers(u16 move, u8 battlerAtk, u8 battlerDe
         if (moveType == TYPE_NORMAL && gBattleStruct->ateBoost[battlerAtk])
             MulModifier(&modifier, UQ_4_12(1.3));
         break;
+    case ABILITY_LIQUID_VOICE:
+	    if (gBattleMoves[move].flags & FLAG_SOUND)
+		MulModifier(&modifier, UQ_4_12(1.2));
+	    break;
 	case ABILITY_GORILLA_TACTICS:
         if (IS_BATTLER_MOVE_PHYSICAL(move, battlerAtk))
             MulModifier(&modifier, UQ_4_12(1.5));
