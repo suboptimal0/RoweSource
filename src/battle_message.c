@@ -703,6 +703,7 @@ static const u8 sText_PkmnGotOverItsInfatuation[] = _("{B_SCR_ACTIVE_NAME_WITH_P
 static const u8 sText_MeteorBeamCharging[] = _("{B_ATK_NAME_WITH_PREFIX} is overflowing\nwith space energy!");
 static const u8 sText_PkmnItemMelted[] = _("{B_ATK_NAME_WITH_PREFIX} corroded\n{B_DEF_NAME_WITH_PREFIX}'s {B_LAST_ITEM}!");
 static const u8 sText_HeatingUpBeak[] = _("{B_ATK_NAME_WITH_PREFIX} started\nheating up its beak!");
+static const u8 sText_AttackerGainedStrengthFromTheFallen[] = _("{B_ATK_NAME_WITH_PREFIX} gained strength\nfrom the fallen!");
 #else
 
 static const u8 sText_Trainer1LoseText[] = _("{B_TRAINER1_LOSE_TEXT}");
@@ -1387,6 +1388,7 @@ static const u8 sText_BattlerBecameXType[] = _("{B_DEF_NAME_WITH_PREFIX} became 
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
+    [STRINGID_ATTACKERGAINEDSTRENGTHFROMTHEFALLEN - 12] = sText_AttackerGainedStrengthFromTheFallen,
     [STRINGID_BATTLERBECAMEXTYPE - 12] = sText_BattlerBecameXType,
     [STRINGID_TARGETGOTCURSED - 12] = sText_TargetGotCursed,
     [STRINGID_PICKUPACTIVATED - 12] = sText_PickupActivated,

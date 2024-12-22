@@ -546,6 +546,7 @@ static const u8 sInsectEaterDescription[]  =  _("Boost Attack when hit by a Bug-
 static const u8 sEarthEaterDescription[]   =  _("Changes Ground-type moves into HP.");
 static const u8 sSteelEaterDescription[]   =  _("Boost Defense when hit by a Steel-Type move.");
 static const u8 sWindRiderDescription[]    =  _("Boost Atk when hit by a Wind move, does not get damaged.");
+static const u8 sSupremeOverlordDescription[] = _("Inherits fallen's strength.");
 #endif
 
 const u8 gAbilityNames[ABILITIES_COUNT_GEN8][ABILITY_NAME_LENGTH + 1] =
@@ -1089,6 +1090,8 @@ const u8 gAbilityNames[ABILITIES_COUNT_GEN8][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_EARTH_EATER]       = _("Earth Eater"),
     [ABILITY_STEEL_EATER]       = _("Steel Eater"),
     [ABILITY_WIND_RIDER]        = _("Wind Rider"),
+    [ABILITY_SUPREME_OVERLORD] = _("SuprmeOvrlrd"),
+
 #endif
 };
 
@@ -1397,4 +1400,6 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT_GEN8] =
     [ABILITY_EARTH_EATER] = sEarthEaterDescription,
     [ABILITY_STEEL_EATER] = sSteelEaterDescription,
     [ABILITY_WIND_RIDER] = sWindRiderDescription,
+    [ABILITY_SUPREME_OVERLORD] = sSupremeOverlordDescription,
+
 };
