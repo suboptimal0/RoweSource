@@ -2940,6 +2940,10 @@ static const u8 sEERIE_SPELLDescription[] = _(
     "Attacks with psychic power.\n"
     "Foe's last move has 3 PP cut.");
 
+static const u8 sPSYCHIC_NOISEDescription[] = _(
+    "Ataca con ruido no agradable.\n"
+    "Impide recuperar.");
+
 static const u8 sNotDoneYetDescription[] = _(
 	"Not done yet.");
 
@@ -5889,6 +5893,10 @@ static const u8 sEERIE_SPELLDescription[] = _(
     "Attacks with psychic power.\n"
     "Foe's last move has 3 PP cut.");
     
+static const u8 sPSYCHIC_NOISEDescription[] = _(
+    "Attacks with unpleasant sound.\n"
+    "Blocks target's healing.");
+
 static const u8 sNotDoneYetDescription[] = _(
     "Not done yet.");
 
@@ -6653,4 +6661,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_GLACIAL_LANCE - 1] = sGLACIAL_LANCEDescription,
     [MOVE_ASTRAL_BARRAGE - 1] = sASTRAL_BARRAGEDescription,
     [MOVE_EERIE_SPELL - 1] = sEERIE_SPELLDescription,
+    [MOVE_PSYCHIC_NOISE - 1] = sPSYCHIC_NOISEDescription,
 };

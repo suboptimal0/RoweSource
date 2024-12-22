@@ -706,7 +706,6 @@ static const u8 sText_HeatingUpBeak[] = _("{B_ATK_NAME_WITH_PREFIX} started\nhea
 static const u8 sText_AttackerGainedStrengthFromTheFallen[] = _("{B_ATK_NAME_WITH_PREFIX} fortaleció\nde los caídos!");
 #else
 
-static const u8 sText_AttackerGainedStrengthFromTheFallen[] = _("{B_ATK_NAME_WITH_PREFIX} gained strength\nfrom the fallen!");
 static const u8 sText_Trainer1LoseText[] = _("{B_TRAINER1_LOSE_TEXT}");
 static const u8 sText_PkmnAllGainedEXP[] = _("Your whole party gained some\nExp. Points!\p");
 static const u8 sText_PkmnGainedEXP[] = _("{B_BUFF1} gained{B_BUFF2}\n{B_BUFF3} Exp. Points!\p");
@@ -1385,11 +1384,11 @@ static const u8 sText_PastelVeilProtected[] = _("{B_DEF_NAME_WITH_PREFIX} is pro
 static const u8 sText_TargetStatsWereReset[] = _("{B_DEF_NAME_WITH_PREFIX}'s stat changes were\nall reset!");
 static const u8 sText_TargetGotCursed[] = _("{B_DEF_NAME_WITH_PREFIX} was cursed!");
 static const u8 sText_BattlerBecameXType[] = _("{B_DEF_NAME_WITH_PREFIX} became a {B_BUFF1}-type!");
+static const u8 sText_AttackerGainedStrengthFromTheFallen[] = _("{B_ATK_NAME_WITH_PREFIX} gained strength\nfrom the fallen!");
 #endif
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
-    [STRINGID_ATTACKERGAINEDSTRENGTHFROMTHEFALLEN - 12] = sText_AttackerGainedStrengthFromTheFallen,
     [STRINGID_BATTLERBECAMEXTYPE - 12] = sText_BattlerBecameXType,
     [STRINGID_TARGETGOTCURSED - 12] = sText_TargetGotCursed,
     [STRINGID_PICKUPACTIVATED - 12] = sText_PickupActivated,
@@ -1978,6 +1977,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PASTELVEILENTERS - 12] = sText_PastelVeilEnters,
     [STRINGID_PASTELVEILPROTECTED -12] = sText_PastelVeilProtected,
     [STRINGID_TARGETSTATSWERERESET -12] = sText_TargetStatsWereReset,
+    [STRINGID_ATTACKERGAINEDSTRENGTHFROMTHEFALLEN - 12] = sText_AttackerGainedStrengthFromTheFallen,
 };
 
 const u16 gItemDroppedStringIds[] =

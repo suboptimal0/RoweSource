@@ -745,6 +745,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_GLACIAL_LANCE] = _("Lanza Glacial"),
     [MOVE_ASTRAL_BARRAGE] = _("Orbes Espectro"),
     [MOVE_EERIE_SPELL] = _("Conjuro Funesto"),
+    [MOVE_PSYCHIC_NOISE] = _("Ruido Psíquico"),
 #else
     [MOVE_NONE] = _("-"),
     [MOVE_POUND] = _("Pound"),
@@ -1502,5 +1503,6 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_GLACIAL_LANCE] = _("Glacial Lance"),
     [MOVE_ASTRAL_BARRAGE] = _("Astral Barrage"),
     [MOVE_EERIE_SPELL] = _("Eerie Spell"),
+    [MOVE_PSYCHIC_NOISE] = _("Psychic Noise"),    
 #endif
 };
