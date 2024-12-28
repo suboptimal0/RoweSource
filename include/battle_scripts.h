@@ -415,5 +415,6 @@ extern const u8 BattleScript_SetElectricTerrain[];
 extern const u8 BattleScript_SetPsychicTerrain[];
 extern const u8 BattleScript_SetMistyTerrain[];
 extern const u8 BattleScript_SetGrassyTerrain[];
+extern const u8 BattleScript_SupremeOverlordActivates[];
 
 #endif // GUARD_BATTLE_SCRIPTS_H

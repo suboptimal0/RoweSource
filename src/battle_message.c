@@ -702,8 +702,9 @@ static const u8 sText_PkmnShookOffTheTaunt[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX
 static const u8 sText_PkmnGotOverItsInfatuation[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} got over\nits infatuation!");
 static const u8 sText_MeteorBeamCharging[] = _("{B_ATK_NAME_WITH_PREFIX} is overflowing\nwith space energy!");
 static const u8 sText_PkmnItemMelted[] = _("{B_ATK_NAME_WITH_PREFIX} corroded\n{B_DEF_NAME_WITH_PREFIX}'s {B_LAST_ITEM}!");
-static const u8 sText_HeatingUpBeak[] = _("{B_ATK_NAME_WITH_PREFIX} started\nheating up its beak!");
+static const u8 sText_HeatingUpBeak[] = _("{B_ATK_NAME_WITH_PREFIX} comenzó\ncalentar su punta!");
 static const u8 sText_AttackerGainedStrengthFromTheFallen[] = _("{B_ATK_NAME_WITH_PREFIX} fortaleció\nde los caídos!");
+static const u8 sText_TargetAlreadyHealBlocked[]=_("{B_DEF_NAME_WITH_PREFIX} ya está \nimpedido de recuperar!")
 #else
 
 static const u8 sText_Trainer1LoseText[] = _("{B_TRAINER1_LOSE_TEXT}");
@@ -1385,6 +1386,7 @@ static const u8 sText_TargetStatsWereReset[] = _("{B_DEF_NAME_WITH_PREFIX}'s sta
 static const u8 sText_TargetGotCursed[] = _("{B_DEF_NAME_WITH_PREFIX} was cursed!");
 static const u8 sText_BattlerBecameXType[] = _("{B_DEF_NAME_WITH_PREFIX} became a {B_BUFF1}-type!");
 static const u8 sText_AttackerGainedStrengthFromTheFallen[] = _("{B_ATK_NAME_WITH_PREFIX} gained strength\nfrom the fallen!");
+static const u8 sText_TargetAlreadyHealBlocked[]=_("{B_DEF_NAME_WITH_PREFIX} is already \nhealblocked!")
 #endif
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
@@ -1978,6 +1980,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PASTELVEILPROTECTED -12] = sText_PastelVeilProtected,
     [STRINGID_TARGETSTATSWERERESET -12] = sText_TargetStatsWereReset,
     [STRINGID_ATTACKERGAINEDSTRENGTHFROMTHEFALLEN - 12] = sText_AttackerGainedStrengthFromTheFallen,
+    [STRINGID_TARGETALREADYHEALBLOCKED - 12]=sText_TargetAlreadyHealBlocked,
 };
 
 const u16 gItemDroppedStringIds[] =

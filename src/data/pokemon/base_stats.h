@@ -26342,10 +26342,11 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_SLOW,
         .eggGroup1 = EGG_GROUP_UNDISCOVERED,
         .eggGroup2 = EGG_GROUP_UNDISCOVERED,
-        .abilities = {ABILITY_LEVITATE, ABILITY_LEVITATE},
-		.abilityHidden = ABILITY_LEVITATE,
+        .abilities = {ABILITY_TELEPATHY, ABILITY_TELEPATHY},
+		.abilityHidden = ABILITY_TELEPATHY,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .flags = F_GROUND_INMUNITY,
     },
 
     [SPECIES_LATIOS_MEGA] =
@@ -26367,10 +26368,11 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_SLOW,
         .eggGroup1 = EGG_GROUP_UNDISCOVERED,
         .eggGroup2 = EGG_GROUP_UNDISCOVERED,
-        .abilities = {ABILITY_LEVITATE, ABILITY_LEVITATE},
-		.abilityHidden = ABILITY_LEVITATE,
+        .abilities = {ABILITY_TELEPATHY, ABILITY_TELEPATHY},
+		.abilityHidden = ABILITY_TELEPATHY,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .flags =F_GROUND_INMUNITY,
     },
 
     [SPECIES_LOPUNNY_MEGA] =

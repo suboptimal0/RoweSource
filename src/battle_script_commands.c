@@ -2199,7 +2199,7 @@ static void Cmd_datahpupdate(void)
         {
             gHitMarker &= ~(HITMARKER_IGNORE_SUBSTITUTE);
             if (gBattleMoveDamage < 0) // hp goes up
-            {
+            { 
                 gBattleMons[gActiveBattler].hp -= gBattleMoveDamage;
                 if (gBattleMons[gActiveBattler].hp > gBattleMons[gActiveBattler].maxHP)
                     gBattleMons[gActiveBattler].hp = gBattleMons[gActiveBattler].maxHP;
@@ -7624,7 +7624,8 @@ static void Cmd_various(void)
         if ((gStatuses3[gActiveBattler] & (STATUS3_SEMI_INVULNERABLE))
             || BATTLER_MAX_HP(gActiveBattler)
             || !gBattleMons[gActiveBattler].hp
-            || !(IsBattlerGrounded(gActiveBattler)))
+            || !(IsBattlerGrounded(gActiveBattler))
+            || gStatuses3[gActiveBattler] & (STATUS3_HEAL_BLOCK))
         {
             gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 3);
         }
