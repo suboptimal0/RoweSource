@@ -379,33 +379,6 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectNoRetreat 				@ EFFECT_NO_RETREAT					358
 	.4byte BattleScript_EffectJawLock 					@ EFFECT_JAW_LOCK					359
 	.4byte BattleScript_EffectScorchingSands 			@ EFFECT_SCORCHING_SANDS			360
-	.4byte BattleScript_EffectPsychicNoise				@ EFFECT_PSYCHIC_NOISE				361
-
-BattleScript_EffectPsychicNoise:
-	attackcanceler
-	attackstring
-	ppreduce
-	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
-	attackstring
-	ppreduce
-	critcalc
-	damagecalc
-	adjustdamage
-	attackanimation
-	waitanimation
-	effectivenesssound
-	hitanimation BS_TARGET
-	waitstate
-	healthbarupdate BS_TARGET
-	datahpupdate BS_TARGET
-	critmessage
-	waitmessage 0x40
-	resultmessage
-	waitmessage 0x40
-	tryfaintmon BS_TARGET, FALSE, NULL
-	sethealblock printstring STRINGID_TARGETALREADYHEALBLOCKED goto goto
-	printstring STRINGID_PKMNPREVENTEDFROMHEALING
-	goto BattleScript_MoveEnd
 
 BattleScript_EffectScorchingSands:
 	setmoveeffect MOVE_EFFECT_BURN
